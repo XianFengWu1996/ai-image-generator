@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import { Card, Loader } from '../components';
 
 interface Post {
-  _id?: string;
+  _id: string;
+  name: string;
+  prompt: string;
+  photo: string;
 }
 
 interface RenderCardsProps {
