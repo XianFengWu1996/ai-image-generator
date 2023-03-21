@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { backendBaseUrl } from '.';
 import { preview } from '../assets';
 import { FormField, Loader } from '../components';
 import { getRandomPrompt } from '../utils';
@@ -22,7 +23,7 @@ const CreatePost = () => {
       setLoading(true);
 
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post', {
+        const response = await fetch(`${backendBaseUrl}/api/v1/post`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,7 +60,7 @@ const CreatePost = () => {
       try {
         setGeneratingImg(true);
 
-        const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        const response = await fetch(`${backendBaseUrl}/api/v1/dalle`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
