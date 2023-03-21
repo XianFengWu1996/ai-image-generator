@@ -38,7 +38,6 @@ const Home = () => {
   useEffect(() => {
     const getPosts = async () => {
       setLoading(true);
-
       try {
         const response = await fetch(`${backendBaseUrl}/api/v1/post`, {
           method: 'GET',
@@ -53,6 +52,7 @@ const Home = () => {
           setAllPosts(result.data.reverse());
         }
       } catch (error) {
+        console.log(error);
         alert(error);
       } finally {
         setLoading(false);
